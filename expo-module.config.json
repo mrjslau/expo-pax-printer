@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android", "web"],
+  "apple": {
+    "modules": ["ExpoPaxPrinterModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.paxprinter.ExpoPaxPrinterModule"]
+  }
+}
