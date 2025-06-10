@@ -41,3 +41,7 @@ android {
     abortOnError false
   }
 }
+
+dependencies {
+  implementation files('libs/NeptuneLiteApi_V3.30.00_20220720.jar')
+}

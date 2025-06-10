@@ -1,12 +1,19 @@
-import { NativeModule, requireNativeModule } from 'expo';
+import { NativeModule, requireNativeModule } from "expo";
 
-import { ExpoPaxPrinterModuleEvents } from './ExpoPaxPrinter.types';
+type TrackData = {
+	success: boolean;
+	track1?: string;
+	track2?: string;
+	track3?: string;
+	error?: string;
+};
 
-declare class ExpoPaxPrinterModule extends NativeModule<ExpoPaxPrinterModuleEvents> {
-  PI: number;
-  hello(): string;
-  setValueAsync(value: string): Promise<void>;
+declare class ExpoPaxPrinterModule extends NativeModule {
+	printStr(text: string): Promise<void>;
+	getCutMode(): Promise<number>;
+	openDrawer(): Promise<number>;
+	readMagCard(): Promise<TrackData>;
 }
 
 // This call loads the native module object from the JSI.
-export default requireNativeModule<ExpoPaxPrinterModule>('ExpoPaxPrinter');
+export default requireNativeModule<ExpoPaxPrinterModule>("ExpoPaxPrinter");
